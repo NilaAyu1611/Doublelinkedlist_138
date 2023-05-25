@@ -54,6 +54,27 @@ void DoubleLinkedList::addNode() {
 		return;
 	}
 
+	/*Inserting a Node Between Two Nodes in the List*/
+	Node* current = START;			// step 1.a (Make current point to the first node)
+	Node* previous = NULL;					//step 1.b (Make previous point to NULL)
+	while (current->next != NULL && current->next->noMhs < nim)			//step 1.c (Repeat steps d and e until current.info > newnode.info or current = NULL)
+	{
+		previous = current;						// 1.d (Make previous point to current)
+		current = current->next;					//1.e (Make current point to the next node in sequence)
+	}
+
+	if (current->next != NULL && nim == current->next->noMhs) {
+		cout << "\nDuplicate roll numbers not allowed" << endl;
+		return;
+	}
+
+	newNode->next = current->next;		//step 4 (Make the next field of the new node point to current)
+	newNode->prev = current;		//step 5 (Make the prev field of the new node point to previous)
+	if (current->next != NULL)
+		current->next->prev = newNode;		//step 6 (Make the prev field of current point to the new node)
+	current->next = newNode;		//step 7 (Make the next field of previous point to the new node)
+}
+
 	
 
 
