@@ -46,11 +46,11 @@ void DoubleLinkedList::addNode() {
 			cout << "\nDuplicate number not allowed" << endl;
 			return;
 		}
-		newNode->next = START;		//Step 3
+		newNode->next = START;		//Step 3 (Make the next field of the new node point to the first node in the list)
 		if (START != NULL)
-			START->prev = newNode;		// step 4
-		newNode->prev = NULL;		//step 5
-		START = newNode;		//Step 6
+			START->prev = newNode;		// step 4 (Make the prev field of START point to the new node)
+		newNode->prev = NULL;		//step 5 (Make the prev field of the new node point to NULL)
+		START = newNode;		//Step 6 (Make START, point to the new node)
 		return;
 	}
 
